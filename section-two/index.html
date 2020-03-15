@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stateless Fuctional Components</title>
+
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+
+    <div id="one">React is not rendered</div>
+    <script type="text/babel"> 
+
+        // OUR FIRST STATELESS FUNCTIONAL COMPONENT
+        // COMPONENT IS CAPITALISED
+        // ONE RETURN STATEMENT
+        var ColourSpectrum = function() {
+            return (
+                <h1>Red, Orange, Yellow, Green, Blue, Indigo, Violet</h1>
+            );
+        };
+        var element = document.getElementById("one");
+
+        ReactDOM.render(<ColourSpectrum/>, element);
+    </script>
+    
+</body>
+</html>
