@@ -18,12 +18,66 @@
     <div id="one">React is not rendered</div>
     <script type="text/babel"> 
 
+        // STATELESS FUNCTIONAL COMPONENT PRACTICE
+        // CHALLENGE -> CREATE A COMPONENT FOR ALL THE COLORS OF THE SPECTRUM AND 
+        // RENDER THEM TO THE DOM WITHIN ONE PARENT DIV
+
+        var Violet = function() {
+            return (
+                <h1>Violet</h1>
+            );
+        };
+
+        var Orange = function() {
+            return (
+                <h1>Orange</h1>
+            );
+        };
+
+        var Yellow = function() {
+            return (
+                <h1>Yellow</h1>
+            );
+        };
+
+        var Green = function() {
+            return (
+                <h1>Green</h1>
+            );
+        };
+
+        var Blue = function() {
+            return (
+                <h1>Blue</h1>
+            );
+        };
+
+        var Indigo = function() {
+            return (
+                <h1>Indigo</h1>
+            );
+        };
+
+        var Red = function() {
+            return (
+                <h1>Red</h1>
+            );
+        };
+
         // OUR FIRST STATELESS FUNCTIONAL COMPONENT
         // COMPONENT IS CAPITALISED
         // ONE RETURN STATEMENT
         var ColourSpectrum = function() {
             return (
-                <h1>Red, Orange, Yellow, Green, Blue, Indigo, Violet</h1>
+                <div>
+                    <Red/>
+                    <Orange/>
+                    <Yellow/>
+                    <Green/>
+                    <Blue/>
+                    <Indigo/>
+                    <Violet/>
+                </div>
             );
         };
         var element = document.getElementById("one");
