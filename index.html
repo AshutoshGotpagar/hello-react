@@ -16,11 +16,12 @@
     <div id="app">React has not rendered yet!</div>
     <!-- JAVASCRIPT -->
     <script type="text/babel">
+        //REFACTORING 
+        var hello = <h1>HELLO WORLD!</h1>;
+        var destination = document.getElementById("app");
+
         // RENDER REACT TO DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
-        ReactDOM.render(
-            <h1>HELLO WORLD!</h1>,
-            document.getElementById("app")
-        );
+        ReactDOM.render(hello, destination);
     </script>
 </body>
 </html>
