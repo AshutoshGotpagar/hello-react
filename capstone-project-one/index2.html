@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FriendLy</title>
+
+    <!-- REACT LIBRARY -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <!-- REACT DOM LIBRARY -->
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div id="app">React has not rendered yet</div>
+
+    <script type="text/babel">
+      // FriendLy Complex Component
+      var FriendLy = function(props) {
+        var friendly = {
+          display: "inline-block",
+          marginLeft: 20,
+          height: 300,
+          width: 200,
+          padding: 0,
+          backgorundColor: "#FFF",
+          WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+          filter: "drop-shadow(0px 0px 5px #555)"
+        };
+        return (
+          <div style={friendly}>
+            <Avatar img={props.img} />
+            <UserName name={props.name} />
+            <GetConnected />
+          </div>
+        );
+      };
+
+      // Avatar Component
+      var Avatar = function(props) {
+        var avatar = {
+          marginLeft: 25,
+          marginRight: 25,
+          marginTop: 20,
+          width: 150,
+          height: 150,
+          borderRadius: "50%"
+        };
+        return <img src={props.img} alt="Image Not Found" style={avatar} />;
+      };
+
+      // UserName Component
+      var UserName = function(props) {
+        var name = {
+          textAlign: "center",
+          fontSize: 18,
+          margin: 20,
+          fontFamily: "Arial, Helvetica, sans-serif"
+        };
+        return <h1 style={name}>{props.name}</h1>;
+      };
+
+      // GetConnected Component
+      var GetConnected = function() {
+        var getConnectedStyle = {
+          margin: 15
+        };
+        return (
+          <div style={getConnectedStyle}>
+            <Like style={iconStyle} />
+            <Share />
+            <Add />
+          </div>
+        );
+      };
+
+      var iconStyle = {
+        margin: 20
+      };
+
+      // Like Component
+      var Like = function(props) {
+        return <i {...props} className="far fa-thumbs-up"></i>;
+      };
+
+      // Share Component
+      var Share = function() {
+        return <i style={iconStyle} className="far fa-share"></i>;
+      };
+
+      // Add Component
+      var Add = function() {
+        return <i style={iconStyle} className="far fa-users"></i>;
+      };
+
+      // Challenge - Mass produce individual friendly cards using props
+      // Challenge 1 - Use props to pass the name of the person from ReactDOM.render() method to parent friendly
+      // component to child UserName component
+      // Challenge 2 - Use props to pass the image of the person from ReactDOM.render() method to parent friendly
+      // component to child UserName component
+      // Challenge 3 - Mass produce the cards.
+
+      ReactDOM.render(
+        <div>
+          <FriendLy
+            name="Rob"
+            img="https://media-exp1.licdn.com/dms/image/C5103AQGS05UtD_KUlw/profile-displayphoto-shrink_200_200/0?e=1590019200&v=beta&t=AYg3u9TZJY0z8XD0g2kk2tkN9W6EMjkN193gxx2Dznk"
+          />
+          <FriendLy
+            name="Rob"
+            img="https://media-exp1.licdn.com/dms/image/C5103AQGS05UtD_KUlw/profile-displayphoto-shrink_200_200/0?e=1590019200&v=beta&t=AYg3u9TZJY0z8XD0g2kk2tkN9W6EMjkN193gxx2Dznk"
+          />
+        </div>,
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
