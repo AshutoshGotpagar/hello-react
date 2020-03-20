@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- REACT LIBRARY -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <!-- REACT DOM LIBRARY -->
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT -->
+    <div id="app">React has not rendered yet!</div>
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+      // React events in functional component.
+      // var Note = function(props) {
+      //   var handleButtonEdit = function() {
+      //     alert("this button will edit a note");
+      //   };
+
+      //   var handleButtonDelete = function() {
+      //     alert("this button will delete a note");
+      //   };
+
+      //   return (
+      //     <div>
+      //       <h1>Useless Note Taker</h1>
+      //       <button onClick={handleButtonEdit}>edit note</button>
+      //       <button onClick={handleButtonDelete}>delete note</button>
+      //     </div>
+      //   );
+      // };
+
+      // React events in class component
+      class Note extends React.Component {
+        handleButtonEdit = function() {
+          alert("This button edits note");
+        };
+
+        handleButtonDelete = function() {
+          alert("This button deletes note");
+        };
+
+        render() {
+          console.log(this);
+          return (
+            <div>
+              <h1>Useless note taker</h1>
+              <button onClick={this.handleButtonEdit}>Edit Note</button>
+              <button onClick={this.handleButtonDelete}>Delete Note</button>
+            </div>
+          );
+        }
+      }
+      // REFACTORING
+      var destination = document.getElementById("app");
+
+      // RENDER REACT TO DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+      ReactDOM.render(<Note />, destination);
+    </script>
+  </body>
+</html>
