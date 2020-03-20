@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's React!</title>
+    <!-- REACT LIBRARY -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <!-- REACT DOM LIBRARY -->
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT -->
+    <div id="app">React has not rendered yet!</div>
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+      class DinnerVote extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            upVote: 0,
+            downVote: 0
+          };
+        }
+
+        upVote() {
+          this.setState({
+            ...this.state,
+            upVote: ++this.state.upVote
+          });
+        }
+
+        downVote() {
+          this.setState({
+            ...this.state,
+            downVote: ++this.state.downVote
+          });
+        }
+
+        render() {
+          var dinnerStyle = {
+            display: "inline-block",
+            textAlign: "center",
+            margin: 20,
+            height: 500,
+            width: 300,
+            padding: 0,
+            backgroundColor: "#FFF",
+            WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+            filter: "drop-shadow(0px 0px 5px #555)"
+          };
+
+          var imgStyle = {
+            height: 200,
+            width: 200,
+            marginTop: 20
+          };
+          return (
+            <div style={dinnerStyle}>
+              <img
+                style={imgStyle}
+                src={this.props.img}
+                alt="image not found"
+              />
+              <h6>{this.state.upVote}</h6>
+              <button onClick={this.upVote.bind(this)}>Like</button>
+              <h6>{this.state.downVote}</h6>
+              <button onClick={this.downVote.bind(this)}>Dislike</button>
+            </div>
+          );
+        }
+      }
+
+      //REFACTORING
+      var destination = document.getElementById("app");
+
+      // RENDER REACT TO DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+      ReactDOM.render(
+        <div>
+          <DinnerVote img="https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg" />
+          <DinnerVote img="https://static.pexels.com/photos/58722/pexels-photo-58722.jpeg" />
+          <DinnerVote img="https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg" />
+        </div>,
+        destination
+      );
+    </script>
+  </body>
+</html>
