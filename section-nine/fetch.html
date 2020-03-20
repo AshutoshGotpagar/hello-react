@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's React!</title>
+    <!-- REACT LIBRARY -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <!-- REACT DOM LIBRARY -->
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT -->
+    <div id="app">React has not rendered yet!</div>
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+      //REFACTORING
+
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            items: []
+          };
+        }
+
+        // componentDidMount
+        // most common use case: starting AJAX calls to load data for your component
+        // can call setState in this lifeCycle method.
+
+        componentDidMount() {
+          fetch("https://swapi.co/api/people")
+            .then(function(response) {
+              return response.json();
+            })
+            .then(responseData => {
+              this.setState({
+                items: responseData.results
+              });
+            })
+            .catch(error => {
+              console.log("Fetching and Parsing error: ", error);
+            });
+        }
+
+        render() {
+          let items = this.state.items;
+          console.log(items);
+          return (
+            <div>
+              {items.map(item => {
+                <h4 key={item.name}>{item.name}</h4>;
+              })}
+            </div>
+          );
+        }
+      }
+
+      var destination = document.getElementById("app");
+
+      // RENDER REACT TO DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+      ReactDOM.render(<App />, destination);
+    </script>
+  </body>
+</html>
