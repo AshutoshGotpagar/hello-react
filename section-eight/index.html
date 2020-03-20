@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's React!</title>
+    <!-- REACT LIBRARY -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <!-- REACT DOM LIBRARY -->
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT -->
+    <div id="app">React has not rendered yet!</div>
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+      // class GuessAge extends React.Component {
+      //   constructor(props) {
+      //     super(props);
+      //     this.state = {
+      //       age: "Guess My Age"
+      //     };
+      //     this.handleButtonAge = this.handleButtonAge.bind(this);
+      //   }
+
+      //   handleButtonAge = function() {
+      //     this.setState({
+      //       age: 37
+      //     });
+      //   };
+
+      //   render() {
+      //     return (
+      //       <div>
+      //         <h1>Guessing Game</h1>
+      //         <h2>{this.state.age}</h2>
+      //         <button onClick={this.handleButtonAge}>reveal my age</button>
+      //       </div>
+      //     );
+      //   }
+      // }
+
+      // class GuessAge extends React.Component {
+      //   constructor(props) {
+      //     super(props);
+      //     this.state = {
+      //       age: "Guess My Age"
+      //     };
+      //   }
+
+      //   handleButtonAge = function() {
+      //     this.setState({
+      //       age: 37
+      //     });
+      //   };
+
+      //   render() {
+      //     return (
+      //       <div>
+      //         <h1>Guessing Game</h1>
+      //         <h2>{this.state.age}</h2>
+      //         <button onClick={this.handleButtonAge.bind(this)}>
+      //           reveal my age
+      //         </button>
+      //       </div>
+      //     );
+      //   }
+      // }
+
+      class GuessAge extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            age: "Guess My Age"
+          };
+        }
+
+        handleButtonAge = function() {
+          this.setState({
+            age: 37
+          });
+        };
+
+        render() {
+          return (
+            <div>
+              <h1>Guessing Game</h1>
+              <h2>{this.state.age}</h2>
+              <button onClick={() => this.handleButtonAge()}>
+                reveal my age
+              </button>
+            </div>
+          );
+        }
+      }
+
+      //REFACTORING
+      var destination = document.getElementById("app");
+
+      // RENDER REACT TO DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+      ReactDOM.render(<GuessAge />, destination);
+    </script>
+  </body>
+</html>
