@@ -56,8 +56,8 @@
           console.log(items);
           return (
             <div>
-              {items.map(item => {
-                <h4 key={item.name}>{item.name}</h4>;
+              {items.map(function(item) {
+                return <h4 key={item.name}>{item.name}</h4>;
               })}
             </div>
           );
